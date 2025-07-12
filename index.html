@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="4AM.wav - Night Club Events & Experiences. Stay tuned for electrifying nights, live DJs, and unforgettable vibes.">
+  <title>4AM.wav - Night Club Events</title>
+  <link rel="icon" type="image/png" href="assets/logo.PNG">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    main {
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+    }
+    body {
+      color: #fff;
+      font-family: 'Orbitron', Arial, sans-serif;
+      min-height: 100vh;
+      /* Animated gradient background */
+      background: linear-gradient(120deg, #0a0a0f 0%, #1a1a2e 40%, #0a0a0f 100%);
+      background-size: 200% 200%;
+      animation: bgmove 12s ease-in-out infinite;
+      position: relative;
+    }
+    @keyframes bgmove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Subtle moving light rays */
+    .bg-lights {
+      pointer-events: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-lights span {
+      position: absolute;
+      width: 120vw;
+      height: 8vw;
+      background: linear-gradient(90deg, transparent, #00fff733 60%, transparent 100%);
+      filter: blur(12px);
+      opacity: 0.25;
+      animation: lightmove 8s linear infinite;
+    }
+    .bg-lights span:nth-child(1) {
+      top: 10vh; left: -10vw; transform: rotate(-8deg);
+      animation-delay: 0s;
+    }
+    .bg-lights span:nth-child(2) {
+      top: 60vh; left: -20vw; transform: rotate(6deg);
+      background: linear-gradient(90deg, transparent, #ff00cc33 60%, transparent 100%);
+      animation-delay: 3s;
+    }
+    @keyframes lightmove {
+      0% { left: -20vw; }
+      100% { left: 100vw; }
+    }
+    /* Logo cropping and animation */
+.logo-crop-container {
+      width: 100%;
+      max-width: 420px;
+      height: 120px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 36px;
+      margin-bottom: 18px;
+      z-index: 1;
+      position: relative;
+      animation: fadein 1.2s cubic-bezier(.77,0,.18,1) 0.1s both;
+    }
+    /* .logo-crop-container::before removed to preserve PNG transparency */
+    .logo-img {
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      filter: drop-shadow(0 0 48px #00fff7cc) drop-shadow(0 0 16px #ff00cc88);
+      margin-left: 0;
+      object-fit: cover;
+      animation: logo-glow 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes logo-glow {
+      0% { filter: drop-shadow(0 0 32px #00fff7cc) drop-shadow(0 0 8px #ff00cc88);}
+      100% { filter: drop-shadow(0 0 64px #00fff7ff) drop-shadow(0 0 24px #ff00ccff);}
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: none;}
+    }
+    .tagline {
+      font-size: 1.5rem;
+      color: #ff00cc;
+      margin-bottom: 48px;
+      text-shadow: 0 0 12px #00fff7, 0 0 8px #ff00cc;
+      letter-spacing: 0.04em;
+      z-index: 1;
+      animation: fadein 1.2s cubic-bezier(.77,0,.18,1) 0.5s both;
+      text-align: center;
+    }
+    .event-section {
+      background: rgba(20, 0, 40, 0.85);
+      border-radius: 22px;
+      padding: 38px 28px 32px 28px;
+      margin-bottom: 38px;
+      max-width: 480px;
+      width: 92vw;
+      text-align: center;
+      box-shadow: 0 0 48px #00fff733, 0 0 16px #ff00cc33;
+      border: 2.5px solid #00fff7;
+      position: relative;
+      z-index: 1;
+      animation: fadein 1.2s cubic-bezier(.77,0,.18,1) 0.9s both;
+    }
+    .event-section::before {
+      content: "";
+      position: absolute;
+      inset: -6px;
+      border-radius: 26px;
+      border: 2.5px solid #ff00cc;
+      filter: blur(6px);
+      opacity: 0.7;
+      z-index: -1;
+      animation: neon-pulse 2.5s infinite alternate;
+    }
+    @keyframes neon-pulse {
+      0% { box-shadow: 0 0 16px #00fff7, 0 0 8px #ff00cc; opacity: 0.7;}
+      100% { box-shadow: 0 0 32px #ff00cc, 0 0 24px #00fff7; opacity: 1;}
+    }
+    .event-section h2 {
+      color: #00fff7;
+      margin-bottom: 16px;
+      font-size: 2rem;
+      letter-spacing: 0.12em;
+      text-shadow: 0 0 12px #ff00cc, 0 0 8px #00fff7;
+      font-weight: bold;
+      animation: fadein 1.2s cubic-bezier(.77,0,.18,1) 1.2s both;
+    }
+    .event-section p {
+      color: #fff;
+      font-size: 1.18rem;
+      margin-bottom: 0;
+      line-height: 1.6;
+      animation: fadein 1.2s cubic-bezier(.77,0,.18,1) 1.4s both;
+    }
+    .event-section p span {
+      font-weight: bold;
+    }
+    .event-section p .event-highlight {
+      color: #00fff7;
+      text-shadow: 0 0 8px #00fff7;
+    }
+    .event-section p .event-soon {
+      color: #ff00cc;
+      text-shadow: 0 0 8px #ff00cc;
+    }
+    .contact {
+      margin-top: 36px;
+      color: #fff;
+      font-size: 1.18rem;
+      text-align: center;
+      z-index: 1;
+      animation: fadein 1.2s cubic-bezier(.77,0,.18,1) 1.7s both;
+    }
+    .contact-label {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: #fff;
+      opacity: 0.85;
+    }
+    .contact-icons {
+      margin-top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+    }
+    .contact-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      outline: none;
+      transition: transform 0.18s, filter 0.18s;
+      filter: drop-shadow(0 0 4px #00fff7) drop-shadow(0 0 2px #ff00cc);
+    }
+    .contact-icons a:hover, .contact-icons a:focus {
+      transform: scale(1.18) rotate(-6deg);
+      filter: drop-shadow(0 0 16px #ff00cc) drop-shadow(0 0 8px #00fff7);
+      z-index: 2;
+    }
+    .contact-icons svg {
+      width: 38px;
+      height: 38px;
+      display: block;
+    }
+    .cta {
+      margin-top: 22px;
+      color: #00fff7;
+      font-size: 1.13rem;
+      text-align: center;
+      letter-spacing: 0.03em;
+      text-shadow: 0 0 8px #ff00cc;
+      z-index: 1;
+      animation: fadein 1.2s cubic-bezier(.77,0,.18,1) 2.1s both;
+    }
+@media (max-width: 700px) {
+      .logo-crop-container { width: 98vw; max-width: 98vw; height: 80px; margin-top: 18px; }
+      .logo-img { width: 100%; max-width: 98vw; height: 100%; margin-left: 0; object-fit: cover; }
+      .event-section { max-width: 98vw; padding: 18px 4vw; }
+    }
+    @media (max-width: 480px) {
+      .logo-crop-container { max-width: 98vw; height: 56px; }
+      .logo-img { width: 100%; max-width: 98vw; height: 100%; object-fit: cover; }
+      .event-section { padding: 12px 2vw; }
+      .contact-icons svg { width: 28px; height: 28px; }
+      .cta { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-lights">
+    <span></span>
+    <span></span>
+  </div>
+  <main>
+    <div class="logo-crop-container">
+      <img src="assets/logo.PNG" alt="4AM.wav Logo" class="logo-img">
+    </div>
+    <div class="tagline">Night Club Events & Experiences</div>
+    <div class="event-section">
+      <h2>Upcoming Events</h2>
+      <p>
+        Stay tuned for electrifying nights, live DJs, and unforgettable vibes.<br>
+        <span class="event-highlight">4AM.wav</span> brings the pulse of the city to you.<br>
+        <span class="event-soon">Next event details coming soon!</span>
+      </p>
+    </div>
+    <div class="cta">
+      Follow us on Instagram for the latest events and updates!
+    </div>
+  </main>
+  <footer class="contact">
+    <div class="contact-label">Contact us:</div>
+    <div class="contact-icons">
+      <a href="mailto:admin@4amwav.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
+        <svg viewBox="0 0 512 512" fill="#00fff7" xmlns="http://www.w3.org/2000/svg">
+          <path d="M502.3 190.8L327.4 338.3c-15.9 13.3-39 13.3-54.9 0L9.7 190.8C3.9 185.7 0 178.5 0 170.8V80c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v90.8c0 7.7-3.9 14.9-9.7 20zM464 80c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16v16.6l208 174.1 208-174.1V80zm48 112.8v206.4c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192.8l218.7 183.1c27.6 23.1 68.1 23.1 95.7 0L512 192.8z"/>
+        </svg>
+      </a>
+      <a href="https://instagram.com/4amwav" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 448 512" fill="#ff00cc" xmlns="http://www.w3.org/2000/svg">
+          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 186c-39.4 0-71.1-31.7-71.1-71.1s31.7-71.1 71.1-71.1 71.1 31.7 71.1 71.1-31.7 71.1-71.1 71.1zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.1S388.6 1.7 353.3 0C317.7-1.7 130.3-1.7 94.7 0 59.4 1.7 28 9.9 2.6 36.2S1.7 123.4 0 158.7C-1.7 194.3-1.7 381.7 0 417.3c1.7 35.3 9.9 66.7 36.2 92.1s56.8 34.5 92.1 36.2c35.6 1.7 223 1.7 258.6 0 35.3-1.7 66.7-9.9 92.1-36.2s34.5-56.8 36.2-92.1c1.7-35.6 1.7-223 0-258.6zM398.8 388c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132.3 9s-102.9 2.6-132.3-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132.3s-2.6-102.9 9-132.3c7.8-19.6 22.9-34.7 42.5-42.5C121.1 2.6 190.9 0 224 0s102.9-2.6 132.3 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132.3s2.7 102.9-9 132.3z"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
